@@ -1,26 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 
 /**
- * check_num - check - string there are digit
- * @str: array str
- *
- * Return: Always 0 (Success)
+ * isNotInteger - checks if the argument is integer or not
+ * @s: array of character
+ * Return: 0 || 1
  */
 
-int check_num(char *str)
+int isNotInteger(const char *s)
 {
-	unsigned int count;
-	count = 0;
-	while (count < strlen(str)) /*count string*/
+	int i = 0;
+
+	while (s[i] != '\0')
 	{
-		if (!isdigit(str[count])) /*check if str there are digit*/
-		{
-			return (0);
-		}
-		count++;
+		if (s[i] < '0' || s[i] > '9')
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
+}
+
+/**
+ * main - adds all the given positive numbers
+ * @argc: number of argument passed
+ * @argv: array to store arguments
+ * Return: 0
+ */
+
+int main(int argc, char const *argv[])
+{
+	int sum = 0;
+
+	while (--argc)
+
+	{
+		if (isNotInteger(argv[argc]))
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += atoi(argv[argc]);
+	}
+	printf("%i\n", sum);
+	return (0);
 }
