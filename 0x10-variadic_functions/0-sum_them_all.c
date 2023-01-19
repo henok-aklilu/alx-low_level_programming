@@ -1,9 +1,8 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
 
 /**
-*sum_them_all - sums all its parameters
-*@n: first parameter
+*sum_them_all - sums all the passed integer arguments
+*@n: number of arguments that is passed
 *
 *Return: 0 if n is null
 * or sum of parameters in other case
